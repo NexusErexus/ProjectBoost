@@ -26,7 +26,7 @@ public class Movement : MonoBehaviour
         ProcessRotation();
     }
 
-    void ProcessThrust()
+    public void ProcessThrust()
     {
         if (Input.GetKey(KeyCode.Space))
         {
@@ -41,7 +41,7 @@ public class Movement : MonoBehaviour
 
     }
 
-    void ProcessRotation()
+    public void ProcessRotation()
     {
         if (Input.GetKey(KeyCode.A))
         {
@@ -59,4 +59,5 @@ public class Movement : MonoBehaviour
         rocketObject.transform.Rotate(Vector3.forward * rotationThisFrame * Time.deltaTime);
         rb.freezeRotation = false;
     }
+
 }
