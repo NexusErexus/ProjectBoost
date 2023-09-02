@@ -6,9 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    [SerializeField] AudioClip explosionSound;
+    [SerializeField] AudioClip successSound;
+
+    AudioSource audioSource;
+
+    bool isTransitioning = false;
+
     readonly float timeDelayed = 2f;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Stop();
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
+        if (isTransitioning) return;
+
         switch(collision.gameObject.tag)
         {
             case "Start":
@@ -25,14 +41,21 @@ public class CollisionHandler : MonoBehaviour
         }
     }
 
+
     public void StartCrushSequence()
     {
+        isTransitioning = true;
+        audioSource.Stop();
+        audioSource.PlayOneShot(explosionSound);
         DisableComponents();
         Invoke(nameof(ReloadCurrentScene), timeDelayed);
     }
     
     public void StartSuccessSequence()
     {
+        isTransitioning = true;
+        audioSource.Stop();
+        audioSource.PlayOneShot(successSound);
         DisableComponents();
         Invoke(nameof(GoToNextLevel), timeDelayed);
     }
@@ -40,7 +63,6 @@ public class CollisionHandler : MonoBehaviour
     public void DisableComponents()
     {
         GetComponent<Movement>().enabled = false;
-        GetComponent<AudioSource>().enabled = false;
     }
 
     public void ReloadCurrentScene()
