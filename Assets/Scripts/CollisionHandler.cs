@@ -8,6 +8,9 @@ public class CollisionHandler : MonoBehaviour
 {
     [SerializeField] AudioClip explosionSound;
     [SerializeField] AudioClip successSound;
+    [SerializeField] ParticleSystem explosionParticles;
+    [SerializeField] ParticleSystem successParticles;
+    
 
     AudioSource audioSource;
 
@@ -47,6 +50,7 @@ public class CollisionHandler : MonoBehaviour
         isTransitioning = true;
         audioSource.Stop();
         audioSource.PlayOneShot(explosionSound);
+        explosionParticles.Play();
         DisableComponents();
         Invoke(nameof(ReloadCurrentScene), timeDelayed);
     }
@@ -56,6 +60,7 @@ public class CollisionHandler : MonoBehaviour
         isTransitioning = true;
         audioSource.Stop();
         audioSource.PlayOneShot(successSound);
+        successParticles.Play();
         DisableComponents();
         Invoke(nameof(GoToNextLevel), timeDelayed);
     }
