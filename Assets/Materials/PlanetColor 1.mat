@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Start Pad
+  m_Name: PlanetColor 1
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -67,9 +67,9 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.41
+    - _Glossiness: 0.091
     - _GlossyReflections: 1
-    - _Metallic: 0.172
+    - _Metallic: 0.268
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -79,6 +79,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.764151, g: 0.05406728, b: 0.05406728, a: 1}
-    - _EmissionColor: {r: 0.103773594, g: 0.019090427, b: 0.019090427, a: 1}
+    - _Color: {r: 0.509434, g: 0.21637866, b: 0.0744927, a: 1}
+    - _EmissionColor: {r: 0.084905684, g: 0.023014594, b: 0.014818445, a: 1}
   m_BuildTextureStacks: []
